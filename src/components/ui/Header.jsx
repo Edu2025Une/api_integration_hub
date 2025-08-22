@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Icon from '../AppIcon';
 import Button from './Button';
 
 const Header = ({ onSidebarToggle, sidebarCollapsed = false }) => {
   const [quickMenuOpen, setQuickMenuOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [statusIndicator, setStatusIndicator] = useState('connected'); // connected, warning, error
   const location = useLocation();
 
@@ -134,16 +136,49 @@ const Header = ({ onSidebarToggle, sidebarCollapsed = false }) => {
           </div>
 
           {/* User Menu */}
-          <Button variant="ghost" size="icon">
-            <Icon name="User" size={20} />
-          </Button>
+          <div className="relative">
+            <Button 
+              variant="ghost" 
+              size="icon"
+              onClick={() => setUserMenuOpen(!userMenuOpen)}
+            >
+              <Icon name="User" size={20} />
+            </Button>
+
+            {/* User Menu Dropdown */}
+            {userMenuOpen && (
+              <div className="absolute right-0 top-full mt-2 w-48 bg-popover border border-border rounded-md shadow-md z-50">
+                <div className="py-1">
+                  <Link
+                    to="/login"
+                    onClick={() => setUserMenuOpen(false)}
+                    className="w-full flex items-center px-3 py-2 text-sm text-popover-foreground hover:bg-muted transition-colors duration-150"
+                  >
+                    <Icon name="LogIn" size={16} className="mr-3" />
+                    Entrar na Conta
+                  </Link>
+                  <Link
+                    to="/register"
+                    onClick={() => setUserMenuOpen(false)}
+                    className="w-full flex items-center px-3 py-2 text-sm text-popover-foreground hover:bg-muted transition-colors duration-150"
+                  >
+                    <Icon name="UserPlus" size={16} className="mr-3" />
+                    Criar Usuário
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
       {/* Click outside to close dropdown */}
-      {quickMenuOpen &&
+      {(quickMenuOpen || userMenuOpen) &&
       <div
         className="fixed inset-0 z-40"
-        onClick={() => setQuickMenuOpen(false)} />
+        onClick={() => {
+          setQuickMenuOpen(false);
+          setUserMenuOpen(false);
+        }} />
 
       }
     </header>);
