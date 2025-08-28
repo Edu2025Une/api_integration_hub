@@ -14,13 +14,6 @@ const Sidebar = ({ isCollapsed = false, isOpen = false, onClose }) => {
       description: 'System overview and health metrics'
     },
     {
-      label: 'Monitoring',
-      icon: 'Activity',
-      path: '/real-time-monitoring-dashboard',
-      description: 'Real-time performance visualization',
-      badge: '3' // Alert count
-    },
-    {
       label: 'Integrations',
       icon: 'Workflow',
       children: [
