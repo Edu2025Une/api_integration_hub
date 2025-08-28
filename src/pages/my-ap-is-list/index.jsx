@@ -27,69 +27,7 @@ const MyAPIsList = () => {
 
   // Mock API data
   useEffect(() => {
-    const mockApis = [
-      {
-        id: '1',
-        name: 'User Authentication API',
-        endpoint: 'https://api.myapp.com/auth',
-        status: 'active',
-        health: 'healthy',
-        createdAt: new Date('2024-01-15'),
-        lastUsed: new Date('2024-01-20'),
-        requestCount: 1250,
-        category: 'Authentication',
-        description: 'API para autenticação e gestão de usuários'
-      },
-      {
-        id: '2',
-        name: 'Payment Processing API',
-        endpoint: 'https://api.myapp.com/payments',
-        status: 'active',
-        health: 'warning',
-        createdAt: new Date('2024-01-10'),
-        lastUsed: new Date('2024-01-19'),
-        requestCount: 890,
-        category: 'Payments',
-        description: 'API para processamento de pagamentos e transações'
-      },
-      {
-        id: '3',
-        name: 'Data Analytics API',
-        endpoint: 'https://api.myapp.com/analytics',
-        status: 'inactive',
-        health: 'error',
-        createdAt: new Date('2024-01-05'),
-        lastUsed: new Date('2024-01-10'),
-        requestCount: 450,
-        category: 'Analytics',
-        description: 'API para coleta e análise de dados de negócio'
-      },
-      {
-        id: '4',
-        name: 'Notification Service API',
-        endpoint: 'https://api.myapp.com/notifications',
-        status: 'active',
-        health: 'healthy',
-        createdAt: new Date('2024-01-12'),
-        lastUsed: new Date('2024-01-21'),
-        requestCount: 2100,
-        category: 'Communication',
-        description: 'API para envio de notificações por email, SMS e push'
-      },
-      {
-        id: '5',
-        name: 'File Storage API',
-        endpoint: 'https://api.myapp.com/storage',
-        status: 'active',
-        health: 'healthy',
-        createdAt: new Date('2024-01-08'),
-        lastUsed: new Date('2024-01-21'),
-        requestCount: 756,
-        category: 'Storage',
-        description: 'API para upload, download e gestão de arquivos'
-      }
-    ];
-    setApis(mockApis);
+    setApis([]);
   }, []);
 
   const handleSidebarToggle = () => {

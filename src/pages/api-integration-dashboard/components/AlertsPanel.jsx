@@ -8,61 +8,8 @@ const AlertsPanel = () => {
   const [filter, setFilter] = useState('all');
 
   useEffect(() => {
-    const mockAlerts = [
-      {
-        id: 1,
-        type: 'error',
-        title: 'API de Relatórios Indisponível',
-        message: 'Falha na conexão com o endpoint de relatórios. Timeout após 30 segundos.',
-        timestamp: new Date(Date.now() - 300000),
-        integration: 'Sistema de Relatórios',
-        severity: 'high',
-        isRead: false
-      },
-      {
-        id: 2,
-        type: 'warning',
-        title: 'Taxa de Erro Elevada',
-        message: 'API de Autenticação apresentando 2.1% de taxa de erro nas últimas 2 horas.',
-        timestamp: new Date(Date.now() - 900000),
-        integration: 'API de Autenticação',
-        severity: 'medium',
-        isRead: false
-      },
-      {
-        id: 3,
-        type: 'info',
-        title: 'Manutenção Programada',
-        message: 'Manutenção do Sistema de Pagamentos agendada para amanhã às 02:00.',
-        timestamp: new Date(Date.now() - 1800000),
-        integration: 'Sistema de Pagamentos',
-        severity: 'low',
-        isRead: true
-      },
-      {
-        id: 4,
-        type: 'success',
-        title: 'Integração Restaurada',
-        message: 'Serviço de Notificações voltou ao funcionamento normal.',
-        timestamp: new Date(Date.now() - 3600000),
-        integration: 'Serviço de Notificações',
-        severity: 'low',
-        isRead: true
-      },
-      {
-        id: 5,
-        type: 'warning',
-        title: 'Limite de Rate Limit Próximo',
-        message: 'Integração CRM utilizou 85% do limite de requisições por hora.',
-        timestamp: new Date(Date.now() - 7200000),
-        integration: 'Integração CRM',
-        severity: 'medium',
-        isRead: false
-      }
-    ];
-
     setTimeout(() => {
-      setAlerts(mockAlerts);
+      setAlerts([]);
       setIsLoading(false);
     }, 600);
   }, []);
