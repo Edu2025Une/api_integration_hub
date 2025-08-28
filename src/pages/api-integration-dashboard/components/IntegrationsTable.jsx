@@ -12,72 +12,9 @@ const IntegrationsTable = () => {
 
   // Mock integrations data
   useEffect(() => {
-    const mockIntegrations = [
-      {
-        id: 1,
-        name: 'Sistema de Pagamentos',
-        endpoint: 'https://api.pagamentos.com.br/v2',
-        status: 'connected',
-        lastActivity: new Date(Date.now() - 300000),
-        responseTime: 145,
-        requests: 2847,
-        errorRate: 0.2,
-        version: 'v2.1',
-        environment: 'production'
-      },
-      {
-        id: 2,
-        name: 'API de Autenticação',
-        endpoint: 'https://auth.empresa.com.br/api',
-        status: 'warning',
-        lastActivity: new Date(Date.now() - 900000),
-        responseTime: 234,
-        requests: 1523,
-        errorRate: 1.8,
-        version: 'v1.5',
-        environment: 'production'
-      },
-      {
-        id: 3,
-        name: 'Serviço de Notificações',
-        endpoint: 'https://notifications.app.com.br/v1',
-        status: 'connected',
-        lastActivity: new Date(Date.now() - 120000),
-        responseTime: 89,
-        requests: 5621,
-        errorRate: 0.1,
-        version: 'v1.2',
-        environment: 'production'
-      },
-      {
-        id: 4,
-        name: 'API de Relatórios',
-        endpoint: 'https://reports.sistema.com.br/api',
-        status: 'error',
-        lastActivity: new Date(Date.now() - 1800000),
-        responseTime: 0,
-        requests: 0,
-        errorRate: 100,
-        version: 'v3.0',
-        environment: 'staging'
-      },
-      {
-        id: 5,
-        name: 'Integração CRM',
-        endpoint: 'https://crm.vendas.com.br/webhook',
-        status: 'connected',
-        lastActivity: new Date(Date.now() - 600000),
-        responseTime: 178,
-        requests: 892,
-        errorRate: 0.5,
-        version: 'v2.3',
-        environment: 'production'
-      }
-    ];
-
     setTimeout(() => {
-      setIntegrations(mockIntegrations);
-      setFilteredIntegrations(mockIntegrations);
+      setIntegrations([]);
+      setFilteredIntegrations([]);
       setIsLoading(false);
     }, 800);
   }, []);
